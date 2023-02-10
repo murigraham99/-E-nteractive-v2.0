@@ -26,7 +26,7 @@ current_level = 0
 @app.route("/upload", methods=["POST"])
 def upload():
     file = request.files["file"]
-    file.save("C:/Users/ROG/PycharmProjects/pythonProject/E-nteractive" + file.filename)
+    file.save("C:/Users/ROG/PycharmProjects/E-nteractive/-E-nteractive-v2.0" + file.filename)
     return jsonify({"message": "File uploaded successfully"})
 
 
