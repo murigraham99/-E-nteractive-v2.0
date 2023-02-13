@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, jsonify
+import random
 
 app = Flask(__name__)
 
@@ -58,3 +59,51 @@ def level():
 
 if __name__ == "__main__":
     app.run()
+
+
+
+class Cube:
+    def __init__(self, value):
+        self.value = value
+
+    def __repr__(self):
+        return f"Cube({self.value})"
+
+class Tower:
+    def __init__(self):
+        self.cubes = []
+
+    def add_cube(self, cube):
+        self.cubes.append(cube)
+
+    def total(self):
+        return sum(cube.value for cube in self.cubes)
+
+    def __repr__(self):
+        return f"Tower({self.cubes})"
+
+class Game:
+    def __init__(self, target_sum):
+        self.target_sum = target_sum
+        self.tower = Tower()
+
+    def generate_cubes(self, count, max_value):
+        return [Cube(random.randint(1, max_value)) for _ in range(count)]
+
+    def play(self):
+        cubes = self.generate_cubes(10, 9)
+        print(f"Cubes: {cubes}, {self.target_sum}")
+        while self.tower.total() < self.target_sum:
+            for index, cube in enumerate(cubes):1
+                print(f"{index + 1}. Add cube {cube}")
+            choice = int(input("Enter your choice (1-10): ")) - 1
+            selected_cube = cubes.pop(choice)
+            self.tower.add_cube(selected_cube)
+            print(f"Tower: {self.tower}")
+        print("Congratulations, you have reached the target sum!")
+
+if __name__ == "__main__":
+    game = Game(30)
+    game.play()
+
+Game().play()
