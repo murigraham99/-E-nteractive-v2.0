@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .file-input-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .file-input {
+        height: 40px;
+        background-color: lightgray;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: white;
+        cursor: pointer;
+        outline: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="file-input-container">
+      <input class="file-input" type="file" id="file-input" />
+      <label for="file-input">Upload File</label>
+    </div>
+   <script>
+      const input = document.querySelector("#file-input");
+      input.addEventListener("change", () => {
+        const formData = new FormData();
+        formData.append("file", input.files[0]);
+
+        fetch("/upload", {
+          method: "POST",
+          body: formData
+        })
+          .then(response => response.json())
+          .then(data => {
+            console.log(data);
+          })
+          .catch(error => {
+            console.error(error);
+          });
+      });
+    </script>
+  </body>
+</html>
