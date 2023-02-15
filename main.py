@@ -43,6 +43,12 @@ def start():
     return render_template("level1.html", level=levels[current_level])
 
 
+# @app.route('/success')
+# def index():
+#     # cu ajutorul render_template putem folosi un template html extern
+#     return render_template("page2.html")
+
+
 @app.route("/level1")
 def level1():
     return render_template("level1.html")
