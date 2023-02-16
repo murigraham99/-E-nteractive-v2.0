@@ -31,12 +31,12 @@ def upload():
     return jsonify({"message": "File uploaded successfully"})
 
 
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 def index():
     return render_template("index.html")
 
 
-@app.route("/start", methods=["POST"])
+@app.route("/start", methods=["GET"])
 def start():
     global current_level
     current_level = 0
@@ -46,6 +46,11 @@ def start():
 @app.route("/level1")
 def level1():
     return render_template("level1.html")
+
+
+@app.route("/level2")
+def level2():
+    return render_template("level2.html")
 
 
 @app.route("/level", methods=["POST"])
