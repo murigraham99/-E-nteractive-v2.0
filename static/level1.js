@@ -13,7 +13,6 @@ draggableElem.addEventListener("touchend", touchEnd);
 // Create a new element when the button is clicked
 const createElemBtn = document.getElementById("create-elem-btn");
 createElemBtn.addEventListener("click", createNewElem);
-createElemBtn.style.flexShrink = 0;
 
 const container = document.getElementById("container");
 container.style.display = "block";
@@ -44,7 +43,79 @@ function mouseMove(event) {
 function mouseUp(event) {
   // Remove the event listener for the mouse move event
   document.removeEventListener("mousemove", mouseMove);
+
+  // Check if the draggable element is close to another element
+  let closestElem = null;
+  let minDistance = Infinity;
+  const draggableRect = draggableElem.getBoundingClientRect();
+
+  draggableElems.forEach((elem) => {
+    if (elem !== draggableElem) {
+      const elemRect = elem.getBoundingClientRect();
+
+      const distLeft = Math.abs(draggableRect.left - elemRect.left);
+      const distRight = Math.abs(draggableRect.right - elemRect.right);
+      const distTop = Math.abs(draggableRect.top - elemRect.top);
+      const distBottom = Math.abs(draggableRect.bottom - elemRect.bottom);
+
+      if (distLeft < 500) {
+        if (distLeft < minDistance) {
+          closestElem = elem;
+          minDistance = distLeft;
+        }
+        elem.classList.add("highlight-left");
+      } else {
+        elem.classList.remove("highlight-left");
+      }
+
+      if (distRight < 500) {
+        if (distRight < minDistance) {
+          closestElem = elem;
+          minDistance = distRight;
+        }
+        elem.classList.add("highlight-right");
+      } else {
+        elem.classList.remove("highlight-right");
+      }
+
+      if (distTop < 500) {
+        if (distTop < minDistance) {
+          closestElem = elem;
+          minDistance = distTop;
+        }
+        elem.classList.add("highlight-top");
+      } else {
+        elem.classList.remove("highlight-top");
+      }
+
+      if (distBottom < 500) {
+        if (distBottom < minDistance) {
+          closestElem = elem;
+          minDistance = distBottom;
+        }
+        elem.classList.add("highlight-bottom");
+      } else {
+        elem.classList.remove("highlight-bottom");
+      }
+    }
+  });
+
+  // Snap the draggable element to the closest element
+  if (closestElem) {
+    const closestRect = closestElem.getBoundingClientRect();
+
+    if (minDistance === Math.abs(draggableRect.left - closestRect.left)) {
+      draggableElem.style.left = closestRect.left - draggableRect.width + "px";
+    } else if (minDistance === Math.abs(draggableRect.right - closestRect.right)) {
+      draggableElem.style.left = closestRect.right + "px";
+    } else if (minDistance === Math.abs(draggableRect.top - closestRect.top)) {
+      draggableElem.style.top = closestRect.top - draggableRect.height + "px";
+    } else {
+      draggableElem.style.top = closestRect.bottom + "px";
+    }
+  }
 }
+
 
 function touchStart(event) {
   // Calculate the offset between the touch and the draggable element
@@ -133,40 +204,5 @@ function createNewElem() {
     target.removeEventListener("touchend", touchEnd, false);
     document.removeEventListener("touchmove", touchMove, false);
   }
-}
-function onMouseMove(event) {
-  const currentElem = event.target;
-  const currentRect = currentElem.getBoundingClientRect();
-
-  draggableElems.forEach(elem => {
-    if (elem !== currentElem) {
-      const rect = elem.getBoundingClientRect();
-      const overlap = !(rect.right < currentRect.left ||
-                        rect.left > currentRect.right ||
-                        rect.bottom < currentRect.top ||
-                        rect.top > currentRect.bottom);
-
-      if (overlap) {
-        const isAbove = currentRect.top <= rect.bottom && currentRect.top <= rect.top;
-        const isBelow = currentRect.bottom >= rect.top && currentRect.bottom >= rect.bottom;
-        const isLeft = currentRect.left <= rect.right && currentRect.left <= rect.left;
-        const isRight = currentRect.right >= rect.left && currentRect.right >= rect.right;
-
-        if (isAbove && isLeft) {
-          currentElem.style.left = `${rect.left - currentRect.width}px`;
-          currentElem.style.top = `${rect.top - currentRect.height}px`;
-        } else if (isAbove && isRight) {
-          currentElem.style.left = `${rect.right}px`;
-          currentElem.style.top = `${rect.top - currentRect.height}px`;
-        } else if (isBelow && isLeft) {
-          currentElem.style.left = `${rect.left - currentRect.width}px`;
-          currentElem.style.top = `${rect.bottom}px`;
-        } else if (isBelow && isRight) {
-          currentElem.style.left = `${rect.right}px`;
-          currentElem.style.top = `${rect.bottom}px`;
-        }
-      }
-    }
-  });
 }
 

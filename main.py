@@ -64,7 +64,7 @@ def level():
         else:
             return render_template("level1.html", level=levels[current_level])
     else:
-        return render_template("retry.html", level=levels[current_level])
+        return render_template("retry.html", level=levels[current_level])\
 
 
 if __name__ == "__main__":
