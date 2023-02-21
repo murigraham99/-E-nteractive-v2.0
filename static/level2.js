@@ -14,11 +14,26 @@ const isTouchDevice = () => {
 };
 
 //Create List Items
+
 const creator = (count) => {
-  for (let i = 1; i <= count; i++) {
-    list.innerHTML += `<li class="list-item" data-value ="${i}">Item-${i} </li>`;
+  const itemValues = Array.from({ length: count }, (_, index) => index + 1);
+  const shuffledValues = shuffle(itemValues);
+
+  for (let i = 0; i < count; i++) {
+    const value = shuffledValues[i];
+    list.innerHTML += `<li class="list-item" id="item${value}" data-value="${value}"></li>`;
   }
 };
+
+// This function shuffles an array in place using the Fisher-Yates shuffle algorithm
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
 
 //Returns element index with given value
 const getPosition = (value) => {
@@ -69,7 +84,45 @@ const drop = (e) => {
       targetElement.insertAdjacentElement("beforebegin", currentElement);
     }
   } catch (err) {}
+
+  checkWin();
 };
+
+// Check if the items are sorted in ascending order from 1 to 7
+
+function checkWin() {
+  let listItems = document.querySelectorAll(".list-item");
+  let previousValue = 0;
+
+  for (let i = 0; i < listItems.length; i++) {
+    let currentValue = Number(listItems[i].getAttribute("data-value"));
+
+    if (currentValue < previousValue) {
+      console.log("You have not won yet");
+      return false;
+    }
+
+    previousValue = currentValue;
+  }
+
+  isGameWon = true;
+  return true;
+}
+
+// Add event listener to the check button
+const checkButton = document.getElementById("check-button");
+
+if (checkButton) {
+  checkButton.addEventListener("click", () => {
+    if (checkWin()) {
+      alert("You win!");
+    } else {
+      console.log("You have not won yet");
+    }
+  });
+} else {
+  console.error("Element with ID 'check-button' not found");
+}
 
 window.onload = async () => {
   customElement = "";
@@ -87,3 +140,4 @@ window.onload = async () => {
     element.addEventListener("touchmove", drop, false);
   });
 };
+
