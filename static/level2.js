@@ -137,7 +137,7 @@ if (checkButton) {
 window.onload = async () => {
   customElement = "";
   list.innerHTML = "";
-  //This creates 5 elements
+  //This creates 7 elements
   await creator(7);
 
   let listItems = document.querySelectorAll(".list-item");
@@ -150,57 +150,4 @@ window.onload = async () => {
     element.addEventListener("touchmove", drop, false);
   });
 };
-
-//// Check if the items are sorted in ascending order from 1 to 7
-//
-//function checkWin() {
-//  let listItems = document.querySelectorAll(".list-item");
-//  let previousValue = 0;
-//
-//  for (let i = 0; i < listItems.length; i++) {
-//    let currentValue = Number(listItems[i].getAttribute("data-value"));
-//
-//    if (currentValue < previousValue) {
-//      console.log("You have not won yet");
-//      return false;
-//    }
-//
-//    previousValue = currentValue;
-//  }
-//
-//  isGameWon = true;
-//  return true;
-//}
-//
-//// Add event listener to the check button
-//const checkButton = document.getElementById("check-button");
-//
-//if (checkButton) {
-//  checkButton.addEventListener("click", () => {
-//    if (checkWin()) {
-//      alert("You win!");
-//    } else {
-//      console.log("You have not won yet");
-//    }
-//  });
-//} else {
-//  console.error("Element with ID 'check-button' not found");
-//}
-//
-//window.onload = async () => {
-//  customElement = "";
-//  list.innerHTML = "";
-//  //This creates 5 elements
-//  await creator(7);
-//
-//  let listItems = document.querySelectorAll(".list-item");
-//  listItems.forEach((element) => {
-//    element.draggable = true;
-//    element.addEventListener("dragstart", dragStart, false);
-//    element.addEventListener("dragover", dragOver, false);
-//    element.addEventListener("drop", drop, false);
-//    element.addEventListener("touchstart", dragStart, false);
-//    element.addEventListener("touchmove", drop, false);
-//  });
-//};
 
