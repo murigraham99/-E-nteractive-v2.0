@@ -182,6 +182,7 @@ input[type=radio]:checked + label>img {
 .container-fluid{
     background: rgba(255, 255, 255, .4)
 
+
 }
 
 .img-options{
@@ -189,7 +190,5 @@ input[type=radio]:checked + label>img {
     object-fit: cover;
 
 }
-
-
 
 
