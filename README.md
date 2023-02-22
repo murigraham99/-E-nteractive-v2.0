@@ -2,7 +2,7 @@
 <img width="210" alt="Screenshot 2023-02-10 at 16 57 18" src="https://user-images.githubusercontent.com/64041947/218123312-0612964e-3ffb-4ebb-959b-a9f8923e0207.png">
 
 ## 
-**Welcome to our game for preschool K.I.D.S. aged 5-7!**
+**Welcome to our game for preschool KIDS aged 5-7!**
 
 **E-nteractive** is designed to be fun and educational for kids who are just beginning to explore the world around them. It is important to introduce our young learners to basic concepts such as geometry, recycling, being a good citizen and recognizing natural phenomena in a playful way. Our game is designed to be intuitive so that kids don't have to rely on reading or writing skills to move across the levels.
 
