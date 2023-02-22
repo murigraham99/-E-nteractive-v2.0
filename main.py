@@ -7,31 +7,44 @@ UPLOAD_FOLDER = '/uploads'
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
+@app.route("/upload", methods=["POST"])
+def upload():
+    file = request.files["file"]
+    file.save("C:/Users/ROG/PycharmProjects/E-nteractive/-E-nteractive-v2.0" + file.filename)
+    return jsonify({"message": "File uploaded successfully"})
 
-@app.route("/")
+
+@app.route("/", methods=["GET", "POST"])
 def index():
     return render_template("index.html")
-    
+
+
+# @app.route("/start", methods=["GET"])
+# def start():
+#     global current_level
+#     current_level = 0
+#     return render_template("level1.html", level=levels[current_level])
+
+
 @app.route("/level1")
 def level1():
     return render_template("level1.html")
 
+
 @app.route("/level2")
 def level2():
     return render_template("level2.html")
-    
 
 @app.route("/level3")
 def level3():
-
-
-    class RandomAnimal:
-        def __init__(self):
-            self.LIST_ANIMALS = ["cock.png", "cow.png", "duck.png", "goat.png", "horse.png", "pig.png", "sheep.png"]
-
-        def choose_random(self):
-
     return render_template("level3.html")
+
+        # class RandomAnimal:
+        #     def __init__(self):
+        #         self.LIST_ANIMALS = ["cock.png", "cow.png", "duck.png", "goat.png", "horse.png", "pig.png", "sheep.png"]
+        #
+        #     def choose_random(self):
+
 
 @app.route("/level4")
 def level4():
@@ -44,7 +57,7 @@ def start():
     if request.method == "POST":
         value = request.form.get("theme")
         f = request.files['file']
-        f.save('static/uploads/file.png')
+        f.save('static/images/file.png')
         print(value)
 
     if value == "Mickey":
