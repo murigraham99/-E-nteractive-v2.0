@@ -53,7 +53,7 @@ window.addEventListener('keyup', (e) => {
           const button = document.createElement("button");
           button.textContent = "Play";
           button.onclick = () => {
-            window.location.href = "http://127.0.0.1:5000/hub";
+            window.location.href = "http://127.0.0.1:4000/level1";
           };
           popUp.appendChild(message);
           popUp.appendChild(button);
@@ -74,7 +74,7 @@ window.addEventListener('keyup', (e) => {
           const button = document.createElement("button");
           button.textContent = "Play";
           button.onclick = () => {
-            window.location.href = "http://127.0.0.1:5000/hub";
+            window.location.href = "http://127.0.0.1:4000/level2";
           };
           popUp.appendChild(message);
           popUp.appendChild(button);
@@ -97,7 +97,7 @@ window.addEventListener('keyup', (e) => {
           const button = document.createElement("button");
           button.textContent = "Play";
           button.onclick = () => {
-            window.location.href = "http://127.0.0.1:5000/hub";
+            window.location.href = "http://127.0.0.1:4000/level3";
           };
           popUp.appendChild(message);
           popUp.appendChild(button);
@@ -118,7 +118,7 @@ window.addEventListener('keyup', (e) => {
           const button = document.createElement("button");
           button.textContent = "Play";
           button.onclick = () => {
-            window.location.href = "http://127.0.0.1:5000/hub";
+            window.location.href = "http://127.0.0.1:4000/level4";
           };
           popUp.appendChild(message);
           popUp.appendChild(button);
