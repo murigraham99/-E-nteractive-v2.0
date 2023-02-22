@@ -3,7 +3,7 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Level 2 list</title>
-
+    <link rel="icon" type="image/png" href="/static/images/favicon.png">
     <!-- Stylesheet -->
     <link rel="stylesheet" href="/static/style2.css" />
   </head>
@@ -12,9 +12,24 @@
       <ul id="list"></ul>
     </div>
     <div class="buttons-container">
-      <button id="check-button" class="button-arounder">Check</button>
+      <button id="check-button" class="button-arounder" onmouseover="playAudio()" onmouseout="pauseAudio()">Check</button>
     </div>
+    <audio id="audio">
+      <source src="/static/audio/check-answer.mp3" type="audio/mpeg">
+    </audio>
     <!-- Script -->
     <script src="/static/level2.js"></script>
+    <script>
+      function playAudio() {
+        var audio = document.getElementById("audio");
+        audio.play();
+      }
+
+      function pauseAudio() {
+        var audio = document.getElementById("audio");
+        audio.pause();
+        audio.currentTime = 0;
+      }
+    </script>
   </body>
 </html>

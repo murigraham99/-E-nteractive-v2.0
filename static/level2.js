@@ -2,7 +2,7 @@ let currentElement = "";
 let list = document.getElementById("list");
 let initialX = 0,
   initialY = 0;
-let isGameWon = false;
+let isGameTwoWon = false;
 
 const isTouchDevice = () => {
   try {
@@ -103,7 +103,7 @@ function checkWin() {
     previousValue = currentValue;
   }
 
-  isGameWon = true;
+  isGameTwoWon = true;
   return true;
 }
 
@@ -114,6 +114,9 @@ if (checkButton) {
   checkButton.addEventListener("click", () => {
     if (checkWin()) {
       // Show pop up when game is won
+      list.classList.add("game-finished");
+      const checkButton = document.getElementById("check-button");
+      checkButton.disabled = true;
       const popUp = document.createElement("div");
       popUp.className = "pop-up";
       const message = document.createElement("p");
