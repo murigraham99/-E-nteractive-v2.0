@@ -1,9 +1,10 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-
 
 body {
   padding: 0;
@@ -14,8 +15,8 @@ body {
   width: 100%;
   overflow: hidden;
 }
+
 #container {
-  flex-box: flex-box;
   min-height: 100%;
   height: 100vh;
   width: 100vw;
@@ -23,21 +24,10 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  flex-direction: column;
   align-items: flex-start;
-
 }
 
-#btn-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-@media only screen and (max-width: 768px) {
-  /* Styles for screens with a maximum width of 768px */
-}
-#draggable-elem{
+.draggable {
   position: absolute;
   background-color: #ffffff;
   font-size: 1.6em;
@@ -53,66 +43,6 @@ body {
   cursor: move;
 }
 
-.new-elem {
-    position: absolute;
-    background-color: #ffffff;
-    font-size: 1.6em;
-    width: 7em;
-    height: 7em;
-  
-    transform: translate(-50%, -50%);
-    left: 50%;
-    top: 50%;
-    display: grid;
-    place-items: center;
-    font-family: "Poppins", sans-serif;
-    border-radius: 0.3em;
-    cursor: move;
-  }
-
-#create-elem-btn {
-  background-color: #6414e9;
-  color: white;
-  border-radius: 10px;
-  font-size: 1.6em;
-  width: 7em;
-}
-/*
-#create-elem-btn {
-  align-items: center;
-  background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
-  border: 0;
-  border-radius: 8px;
-  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
-  box-sizing: border-box;
-  color: #FFFFFF;
-  display: flex;
-  font-family: Phantomsans, sans-serif;
-  font-size: 20px;
-  justify-content: center;
-  line-height: 1em;
-  max-width: 100%;
-  min-width: 140px;
-  padding: 19px 24px;
-  text-decoration: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  white-space: nowrap;
-  cursor: pointer;
-}
-
-#create-elem-btn:active,
-.#create-elem-btn:hover {
-  outline: 0;
-}
-
-@media (min-width: 768px) {
-  #create-elem-btn {
-    font-size: 24px;
-    min-width: 196px;
-  }
-}*/
 #create-elem-btn {
   border-radius: 4px;
   background-color: #5ca1e1;
@@ -125,10 +55,10 @@ body {
   transition: all 0.5s;
   cursor: pointer;
   margin: 36px;
-  box-shadow: 0 10px 20px -8px rgba(0, 0, 0,.7);
+  box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.7);
 }
 
-#create-elem-btn{
+#create-elem-btn {
   cursor: pointer;
   display: inline-block;
   position: relative;
@@ -142,14 +72,4 @@ body {
   top: 14px;
   right: -20px;
   transition: 0.5s;
-}
-
-#create-elem-btn:hover{
-  padding-right: 24px;
-  padding-left:8px;
-}
-
-#create-elem-btn:hover:after {
-  opacity: 1;
-  right: 10px;
 }

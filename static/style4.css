@@ -1,0 +1,73 @@
+.wrapper {
+    background-color: #f2f2f2;
+}
+
+.grid-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 150px; /* Set the height to 150px */
+    max-width: 600px; /* Set the maximum width to 600px */
+    margin: 0 auto; /* Center the grid horizontally */
+    background-color: transparent;
+    position: fixed; /* Set the position to fixed */
+    bottom: 0; /* Align the grid at the bottom of the page */
+    left: 50%; /* Center the grid horizontally */
+    transform: translateX(-50%); /* Adjust the horizontal positioning */
+}
+
+.grid-item1, .grid-item2, .grid-item3, .grid-item4 {
+    width: 50px;
+    height: 75px;
+    border: 1px solid black;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 100px;
+    background-color: transparent;
+}
+
+.grid-item1 img, .grid-item2 img, .grid-item3 img, .grid-item4 img {
+    transform: scale(0.5);
+}
+
+.draggable-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100px;
+    background-color: transparent;
+}
+
+.draggable-item {
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+    text-align: center;
+    cursor: move;
+}
+
+html,body {
+  --s: 30px; /* control the size */
+  --c1: #E5FCC2;
+  --c2: #45ADA8;
+
+  --_s:37.5% 12.5% at 62.5%;
+  --_g:34% 99%,#0000 101%;
+  --g1:radial-gradient(var(--_s) 100%,#0000 32%,var(--c1) var(--_g));
+  --g2:radial-gradient(var(--_s) 0   ,#0000 32%,var(--c1) var(--_g));
+  --g3:radial-gradient(var(--_s) 100%,#0000 32%,var(--c2) var(--_g));
+  --g4:radial-gradient(var(--_s) 0   ,#0000 32%,var(--c2) var(--_g));
+  background:
+    var(--g1),
+    var(--g2) 0                calc(3*var(--s)),
+    var(--g3) var(--s)         calc(3*var(--s)),
+    var(--g4) var(--s)         calc(6*var(--s)),
+    var(--g1) calc(2*var(--s)) calc(6*var(--s)),
+    var(--g2) calc(2*var(--s)) calc(9*var(--s)),
+    var(--g3) calc(3*var(--s)) calc(9*var(--s)),
+    var(--g4) calc(3*var(--s)) 0,
+    repeating-linear-gradient(var(--c1) 0 25%,var(--c2) 0 50%);
+  background-size: calc(4*var(--s)) calc(12*var(--s));
+}

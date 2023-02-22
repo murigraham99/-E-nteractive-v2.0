@@ -1,22 +1,41 @@
 from flask import Flask, render_template, request, jsonify
 import random
-import openai
 
 UPLOAD_FOLDER = '/uploads'
 
+
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-
-current_level = 0
-
-OPENAI_API_KEY = "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"
-openai.api_key = OPENAI_API_KEY
 
 
 @app.route("/")
 def index():
     return render_template("index.html")
+    
+@app.route("/level1")
+def level1():
+    return render_template("level1.html")
 
+@app.route("/level2")
+def level2():
+    return render_template("level2.html")
+    
+
+@app.route("/level3")
+def level3():
+
+
+    class RandomAnimal:
+        def __init__(self):
+            self.LIST_ANIMALS = ["cock.png", "cow.png", "duck.png", "goat.png", "horse.png", "pig.png", "sheep.png"]
+
+        def choose_random(self):
+
+    return render_template("level3.html")
+
+@app.route("/level4")
+def level4():
+    return render_template("level4.html")
 
 @app.route("/start", methods=["GET", "POST"])
 def start():
@@ -42,19 +61,6 @@ def start():
 
     return render_template("page1.html", background=background, companion=companion)
 
-
-
-@app.route("/level3")
-def level3():
-
-
-    class RandomAnimal:
-        def __init__(self):
-            self.LIST_ANIMALS = ["cock.png", "cow.png", "duck.png", "goat.png", "horse.png", "pig.png", "sheep.png"]
-
-        def choose_random(self):
-
-    return render_template("level3.html")
 
 
 
