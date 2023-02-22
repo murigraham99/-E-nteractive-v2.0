@@ -9,7 +9,7 @@ body {
 }
 .container {
   font-family: "Poppins", sans-serif;
-  background-color: #ffffff;
+  background-color: transparent;
   padding: 3em 2em;
   width: 90%;
   max-width: 40em;
@@ -26,6 +26,8 @@ body {
   display: flex;
   justify-content: center;
 }
+
+
 .list-item {
   width: 82px;
   height: 80rem;
@@ -34,6 +36,7 @@ body {
   margin: 1em auto;
   border: 1px solid #000000;
   text-align: center;
+  transform: skew(-20deg);
 }
 .list-item:hover {
   cursor: move;
@@ -92,13 +95,6 @@ background-color: violet;
   top: 50%;
   right: 0;
   transform: translateY(-50%);
-}
-
-button {
-  background: white;
-  border: solid 2px black;
-  padding: .375em 1.125em;
-  font-size: 1rem;
 }
 
 .button-arounder {
@@ -182,4 +178,9 @@ button {
 
 #list.game-finished {
   pointer-events: none;
+}
+
+.list-item.move {
+  transition: transform 0.2s ease-in-out;
+  transform: scale(1.2);
 }

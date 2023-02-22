@@ -53,6 +53,10 @@ def level2():
     return render_template("level2.html")
 
 
+@app.route("/level4")
+def level4():
+    return render_template("level4.html")
+
 @app.route("/level", methods=["POST"])
 def level():
     global current_level

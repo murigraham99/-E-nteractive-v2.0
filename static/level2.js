@@ -122,6 +122,10 @@ if (checkButton) {
       const message = document.createElement("p");
       message.textContent = "You won!";
       const button = document.createElement("button");
+      button.id = "new-button";
+      button.className = "button-arounder";
+      button.addEventListener("mouseover", playAudioHub);
+      button.addEventListener("mouseout", pauseAudioHub);
       button.textContent = "Go to the hub";
       button.onclick = () => {
         window.location.href = "http://127.0.0.1:5000/hub";
@@ -130,6 +134,9 @@ if (checkButton) {
       popUp.appendChild(button);
       document.body.appendChild(popUp);
     } else {
+      pauseAudio()
+      const audioLose = new Audio('/static/audio/incorrect.mp3');
+      audioLose.play();
       console.log("You have not won yet");
     }
   });
@@ -153,4 +160,5 @@ window.onload = async () => {
     element.addEventListener("touchmove", drop, false);
   });
 };
+
 
