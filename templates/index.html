@@ -1,72 +1,98 @@
 <!DOCTYPE html>
 <html>
-  <head>
-	  <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
-	  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
 
     </style>
-  </head>
-  <body>
+</head>
+<body>
 
 
+<div><img class = "sun" src={{url_for('static',
+                      filename='images/219438615-2ace099a-2032-455d-a52a-8c0477c7ab32.png' )}} ></div>
+<div class="container">
+    <div class=" row text-center pt-3 mb-0">
+        <div class="col-12">
+            <div class="box__button btn btn-primary btn-lg active mt-3 mb-3">E-nteractive</div>
+        </div>
 
-<!--    <div class="file-input-container">-->
-<!--      <input class="file-input" type="file" id="file-input" />-->
-<!--      <label for="file-input">Upload File</label>-->
-<!--    </div>-->
-<!--   <script>-->
-<!--      const input = document.querySelector("#file-input");-->
-<!--      input.addEventListener("change", () => {-->
-<!--        const formData = new FormData();-->
-<!--        formData.append("file", input.files[0]);-->
-
-<!--        fetch("/upload", {-->
-<!--          method: "POST",-->
-<!--          body: formData-->
-<!--        })-->
-<!--          .then(response => response.json())-->
-<!--          .then(data => {-->
-<!--            console.log(data);-->
-<!--          })-->
-<!--          .catch(error => {-->
-<!--            console.error(error);-->
-<!--          });-->
-<!--      });-->
-<!--    </script>-->
-
-
-<div class="h-100 d-flex align-items-center justify-content-center mt-5">
-  <div style="background:red">
-
-	   <form class="box" method="post" action="/success" enctype="multipart/form-data">
-          <div class="mb-3">
-            <label for="formFile" class="form-label">Profile picture</label>
-            <input class="form-control" type="file" id="formFile" name = "file">
-          </div>
-	  <div class="box__input">
-
-
-		  <br>
-		  <label >Choose a theme for the game:</label>
-		  <br>
-		  <input type="radio" id="Wizards" name="theme" value="Wizards">
-		  <label for="Wizards">Wizards</label><br>
-		  <input type="radio" id="Pokemon" name="theme" value="Pokemon">
-		  <label for="Pokemon">Pokemon</label><br>
-		  <input type="radio" id="Pirates" name="theme" value="Pirates">
-		  <label for="Pirates">Pirates</label>
-		  <br>
-		<button class="box__button" type="submit">Start the game</button>
-	  </div>
-	</form>
-
-  </div>
+        <div class="col-12 mb-3">
+            <h1 class="text-light">Learning Through Play</h1>
+        </div>
+    </div>
 </div>
 
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<div class="container border rounded border-light ">
+    <div class="row text-center pt-2">
+        <div class="col-6 ">
+            <div class="h-100 d-flex align-items-center justify-content-center mt-0">
+                <div>
 
-  </body>
+                    <form class="box" method="post" action="/start" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label"><h2 class="text-light">Profile picture</h2></label>
+                            <div class="profile-pic">
+                                <input class="form-control" type="file" id="formFile" name="file" size="100">
+                            </div>
+                        </div>
+                        <div class="box__input">
+
+                            <br>
+                            <label><h2 class="text-light">Choose a companion:</h2></label>
+                            <br>
+
+                            <input
+                                    type="radio" name="theme"
+                                    id="Mickey" class="input-hidden" value="Mickey"/>
+                            <label for="Mickey">
+                                <img src={{url_for('static', filename='images/mickey.png' )}}/>
+                            </label>
+
+                            <input
+                                    type="radio" name="theme"
+                                    id="Rapunzel" class="input-hidden" value="Rapunzel"/>
+                            <label for="Rapunzel">
+                                <img src={{url_for('static', filename='images/rapunzel.png' )}}/>
+                            </label>
+
+                            <input
+                                    type="radio" name="theme"
+                                    id="Pikachu" class="input-hidden" value="Pikachu"/>
+                            <label for="Pikachu">
+                                <img src={{url_for('static', filename='images/pikachu.png' )}}/>
+                            </label>
+                            <br>
+                            <button class="box__button btn btn-primary btn-lg active mt-3 mb-3" type="submit">Start
+                            </button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-6 mr-0 pr-0">
+            <div><img class="img_kids mr-0 pr-0" src={{url_for('static',
+                      filename='images/219438531-48152d09-575f-40b1-b23a-4766177bc243.png' )}}></div>
+        </div>
+
+
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+</body>
 </html>
