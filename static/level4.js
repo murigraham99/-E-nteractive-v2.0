@@ -1,6 +1,15 @@
 const draggableItems = document.querySelectorAll('.draggable-item1, .draggable-item2, .draggable-item3, .draggable-item4, .draggable-item5, .draggable-item6, .draggable-item7, .draggable-item8');
 const gridItems = document.querySelectorAll('.grid-item1, .grid-item2, .grid-item3, .grid-item4');
-let count = 0;
+let count = -1;
+
+document.body.style.backgroundImage = 'url(/static/images/backgrounds/Level4_bg1.png)';
+
+function setBackground() {
+  const images = ['/static/images/backgrounds/Level4_bg2.png', '/static/images/backgrounds/Level4_bg3.png', '/static/images/backgrounds/Level4_bg4.png', '/static/images/backgrounds/Level4_bg5.png', '/static/images/backgrounds/Level4_bg6.png', '/static/images/backgrounds/Level4_bg7.png', '/static/images/backgrounds/Level4_bg8.png', '/static/images/backgrounds/Level4_bg9.png' ] ;
+  const imageIndex = count % images.length;
+  const imageUrl = `url(${images[imageIndex]})`;
+  document.body.style.backgroundImage = imageUrl;
+}
 
 draggableItems.forEach(draggableItem => {
   draggableItem.addEventListener('dragstart', () => {
@@ -25,7 +34,9 @@ draggableItems.forEach(draggableItem => {
     if (gridItemTag === draggedItemTag) {
       gridItem.appendChild(draggedItem);
       count++;
+      setBackground();
       console.log(count);
+      draggedItem.remove(); // Remove the dragged item from its parent node
     } else {
       alert('The item cannot be dropped here.');
     }
@@ -55,7 +66,9 @@ gridItems.forEach(gridItem => {
     if (gridItemTag === draggedItemTag) {
       gridItem.appendChild(draggedItem);
       count++;
+      setBackground();
       console.log(count);
+      draggedItem.remove(); // Remove the dragged item from its parent node
     } else {
       alert('The item cannot be dropped here.');
     }
