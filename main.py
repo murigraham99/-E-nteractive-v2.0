@@ -64,7 +64,5 @@ def start():
     return render_template("page1.html", background=background, companion=companion)
 
 
-
-
 if __name__ == "__main__":
     app.run(debug=True, port=4000)
