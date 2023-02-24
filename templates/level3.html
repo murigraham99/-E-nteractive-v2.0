@@ -13,26 +13,147 @@
 </head>
 <body>
 
-<div class="container">
-    <div class="row pt-5">
-        <div class="col-6">
-            <a href="#"><img class="img-options" src="{{ url_for('static', filename='/images/horse.png')}}"></a>
+
+<form class="box" method="post" action="/level3" enctype="multipart/form-data">
+
+    <div class="container">
+        <div class="row pt-5 h-50">
+            <div class="col-6 d-flex align-items-stretch">
+
+                <div class="card mx-auto lign-items-center d-flex justify-content-center" style="width: 18rem;">
+                    <a href="javascript:void(0);"  id="{{animal1}}">
+                  <img class="card-img-top" src="{{ url_for('static', filename='images/animals/' + animal1)}}">
+                    </a>
+                </div>
+
+            </div>
+            <div class="col-6 d-flex align-items-stretch">
+                <div class="card mx-auto align-items-center d-flex justify-content-center" style="width: 18rem;">
+                    <a href="javascript:void(0);" id ="{{animal2}}">
+
+                  <img class="card-img-top" src="{{ url_for('static', filename='images/animals/' + animal2)}}">
+                    </a>
+                </div>
+
+            </div>
         </div>
-        <div class="col-6">
-            <a href="#"><img class="img-options" src="{{ url_for('static', filename='/images/horse.png')}}" src="#"></a>
+
+        <div class="row pt-5 pb-5">
+            <div class="col-12 text-center justify-content-center m-auto">
+                <button type="button"  id ="button-sound" class="btn btn-primary btn-lg mt-5">Play Sound</button>
+            </div>
 
         </div>
+
     </div>
+</form>
+<script>
+    const audioButton = document.getElementById("button-sound");
+    let audio = '{{audio_correct}}';
+    console.log(audio);
 
-    <div class="row pt-5 pb-5">
-        <div class="col-12 text-center justify-content-center m-auto">
-            <button type="button" class="btn btn-primary btn-lg mt-5">Play Sound</button>
-        </div>
+    if (audioButton) {
+      audioButton.addEventListener("click", () => {
 
-    </div>
+          const audioLose = new Audio('/static/audio/'+ audio);
+          audioLose.play();
+          console.log("Clicked");
 
-</div>
+});};
 
+    const animal1 = document.getElementById('{{animal1}}');
+
+    animal1.addEventListener("click", function(event) {
+        if (animal1.id.split(".")[0] === audio.split(".")[0]){
+            console.log("correct");
+          const popUp = document.createElement("div");
+          popUp.className = "pop-up";
+          const message = document.createElement("p");
+          message.textContent = "Correct";
+          const button = document.createElement("button");
+          button.textContent = "Replay";
+          const button_hub = document.createElement("button");
+          button_hub.textContent = "Back To Hub";
+          button.onclick = () => {
+            window.location.href = "http://127.0.0.1:4000/level3";
+          };
+          button_hub.onclick = () => {
+            window.location.href = "http://127.0.0.1:4000/start";
+          };
+          popUp.appendChild(message);
+          popUp.appendChild(button);
+          popUp.appendChild(button_hub)
+          document.body.appendChild(popUp);
+        }else{
+            const popUp = document.createElement("div");
+          popUp.className = "pop-up";
+          const message = document.createElement("p");
+          message.textContent = "Incorrect";
+          const button = document.createElement("button");
+          button.textContent = "Replay";
+          const button_hub = document.createElement("button");
+          button_hub.textContent = "Back To Hub";
+          button.onclick = () => {
+            window.location.href = "http://127.0.0.1:4000/level3";
+          };
+          button_hub.onclick = () => {
+            window.location.href = "http://127.0.0.1:4000/start";
+          };
+          popUp.appendChild(message);
+          popUp.appendChild(button);
+          popUp.appendChild(button_hub)
+          document.body.appendChild(popUp);}
+
+});
+
+
+    const animal2 = document.getElementById('{{animal2}}');
+
+    animal2.addEventListener("click", function(event) {
+        if (animal2.id.split(".")[0] === audio.split(".")[0]){
+            const popUp = document.createElement("div");
+          popUp.className = "pop-up";
+          const message = document.createElement("p");
+          message.textContent = "Correct";
+          const button = document.createElement("button");
+          button.textContent = "Replay";
+          const button_hub = document.createElement("button");
+          button_hub.textContent = "Back To Hub";
+          button.onclick = () => {
+            window.location.href = "http://127.0.0.1:4000/level3";
+          };
+          button_hub.onclick = () => {
+            window.location.href = "http://127.0.0.1:4000/start";
+          };
+          popUp.appendChild(message);
+          popUp.appendChild(button);
+          popUp.appendChild(button_hub)
+          document.body.appendChild(popUp);
+        }else{
+            const popUp = document.createElement("div");
+          popUp.className = "pop-up";
+          const message = document.createElement("p");
+          message.textContent = "Incorrect";
+          const button = document.createElement("button");
+          button.textContent = "Replay";
+          const button_hub = document.createElement("button");
+          button_hub.textContent = "Back To Hub";
+          button.onclick = () => {
+            window.location.href = "http://127.0.0.1:4000/level3";
+          };
+          button_hub.onclick = () => {
+            window.location.href = "http://127.0.0.1:4000/start";
+          };
+          popUp.appendChild(message);
+          popUp.appendChild(button);
+          popUp.appendChild(button_hub)
+          document.body.appendChild(popUp);}
+
+});
+
+
+</script>
+<!--<script src="{{url_for('static', filename='level3.js')}}"></script>-->
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
