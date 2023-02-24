@@ -103,10 +103,9 @@ input[type=radio]:checked + label>img {
 }
 
 .profile-picture{
-    border: 1px dashed #444;
-
-
-
+    border: 2px;
+    background: #45ADA8;
+    outline: 1px solid black;
 }
 
 .form-control{
@@ -179,10 +178,8 @@ input[type=radio]:checked + label>img {
   cursor: pointer;
 }
 
-.container-fluid{
+#game1, #game2, #game3, #game4{
     background: rgba(255, 255, 255, .4)
-
-
 }
 
 .img-options{
@@ -190,5 +187,4 @@ input[type=radio]:checked + label>img {
     object-fit: cover;
 
 }
-
 

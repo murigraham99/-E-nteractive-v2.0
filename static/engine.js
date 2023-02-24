@@ -29,7 +29,7 @@ window.addEventListener('load', () => {
 
 
 
-window.addEventListener('keyup', (e) => {
+window.addEventListener('keydown', (e) => {
     let companion = document.getElementById('companion');
     const companion_coords = companion.getBoundingClientRect();
     console.log(companion_coords.top, companion_coords.right);
