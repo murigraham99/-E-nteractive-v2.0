@@ -151,11 +151,17 @@ body {
 
 #group-panel {
   position: fixed;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #f0f0f0;
-  padding: 10px;
-  border: 1px solid #ccc;
-  font-size: 18px;
+  top: 1rem;
+  left: 2rem;
+  border-radius: 4px;
+  background-color: #5ca1e1;
+  border: none;
+  color: #fff;
+  text-align: center;
+  font-size: 32px;
+  padding: 16px;
+  width: 270px;
+  transition: all 0.5s;
+  cursor: pointer;
+  box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.7);
 }
