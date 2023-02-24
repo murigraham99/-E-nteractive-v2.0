@@ -7,23 +7,10 @@ UPLOAD_FOLDER = '/uploads'
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-@app.route("/upload", methods=["POST"])
-def upload():
-    file = request.files["file"]
-    file.save("C:/Users/ROG/PycharmProjects/E-nteractive/-E-nteractive-v2.0" + file.filename)
-    return jsonify({"message": "File uploaded successfully"})
-
 
 @app.route("/", methods=["GET", "POST"])
 def index():
     return render_template("index.html")
-
-
-# @app.route("/start", methods=["GET"])
-# def start():
-#     global current_level
-#     current_level = 0
-#     return render_template("level1.html", level=levels[current_level])
 
 
 @app.route("/level1")
@@ -34,6 +21,7 @@ def level1():
 @app.route("/level2")
 def level2():
     return render_template("level2.html")
+
 
 @app.route("/level3")
 def level3():
@@ -49,6 +37,7 @@ def level3():
 @app.route("/level4")
 def level4():
     return render_template("level4.html")
+
 
 @app.route("/start", methods=["GET", "POST"])
 def start():
