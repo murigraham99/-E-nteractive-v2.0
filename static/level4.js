@@ -1,8 +1,6 @@
-//const draggableItems = document.querySelectorAll('.draggable-item1, .draggable-item2, .draggable-item3, .draggable-item4, .draggable-item5, .draggable-item6, .draggable-item7, .draggable-item8');
 const gridItems = document.querySelectorAll('.grid-item1, .grid-item2, .grid-item3, .grid-item4');
 let count = -1;
-
-const draggableItems = [  { tag: 'glass', img: '/static/images/bin.png' },  { tag: 'glass', img: '/static/images/bin.png' },  { tag: 'plastic', img: '/static/images/plastic1.png' },  { tag: 'plastic', img: '/static/images/plastic2.png' },  { tag: 'paper', img: '/static/images/paper1.png' },  { tag: 'paper', img: '/static/images/paper2.png' },  { tag: 'metal', img: '/static/images/metal1.png' },  { tag: 'metal', img: '/static/images/metal2.png' }];
+const draggableItems = [  { tag: 'glass', img: '/static/images/glass1.png' },  { tag: 'glass', img: '/static/images/glass2.png' },  { tag: 'plastic', img: '/static/images/plastic1.png' },  { tag: 'plastic', img: '/static/images/plastic2.png' },  { tag: 'paper', img: '/static/images/paper1.png' },  { tag: 'paper', img: '/static/images/paper2.png' },  { tag: 'metal', img: '/static/images/metal1.png' },  { tag: 'metal', img: '/static/images/metal2.png' }];
 
 // Fisher-Yates shuffle algorithm to randomize the order of the draggableItems array
 for (let i = draggableItems.length - 1; i > 0; i--) {
@@ -21,6 +19,17 @@ for (let i = 0; i < draggableItems.length; i++) {
   draggableItem.appendChild(img);
   draggableContainer.appendChild(draggableItem);
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  // add tags to grid items
+  gridItems.forEach(item => {
+    const tag = document.createElement('div');
+    tag.classList.add('tag');
+    const tagText = item.dataset.tag;
+    tag.textContent = tagText;
+    item.insertBefore(tag, item.firstChild);
+  });
+});
 
 
 document.body.style.backgroundImage = 'url(/static/images/backgrounds/Level4_bg1.png)';
@@ -61,6 +70,24 @@ draggableContainer.childNodes.forEach(draggableItem => {
     } else {
       alert('The item cannot be dropped here.');
     }
+    if (count === 7){
+    const list = document.querySelector(".list");
+    list.classList.add("game-finished");
+    const popUp = document.createElement("div");
+    popUp.className = "pop-up";
+    const message = document.createElement("p");
+    message.textContent = "You won!";
+    const button = document.createElement("button");
+    button.id = "new-button";
+    button.className = "button-arounder";
+    button.textContent = "Go to the hub";
+    button.onclick = () => {
+      window.location.href = "http://127.0.0.1:4000/start";
+    };
+    popUp.appendChild(message);
+    popUp.appendChild(button);
+    document.body.appendChild(popUp);
+    }
   });
 });
 
@@ -93,5 +120,23 @@ gridItems.forEach(gridItem => {
     } else {
       alert('The item cannot be dropped here.');
     }
+    if (count === 7) { // If count is 7, show the pop-up
+    const list = document.querySelector(".list");
+    list.classList.add("game-finished");
+    const popUp = document.createElement("div");
+    popUp.className = "pop-up";
+    const message = document.createElement("p");
+    message.textContent = "You won!";
+    const button = document.createElement("button");
+    button.id = "new-button";
+    button.className = "button-arounder";
+    button.textContent = "Go to the hub";
+    button.onclick = () => {
+      window.location.href = "http://127.0.0.1:4000/start";
+    };
+    popUp.appendChild(message);
+    popUp.appendChild(button);
+    document.body.appendChild(popUp);
+  }
   });
 });
