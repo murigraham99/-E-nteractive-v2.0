@@ -3,7 +3,6 @@ import random
 
 UPLOAD_FOLDER = '/uploads'
 
-
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
@@ -27,11 +26,11 @@ def level2():
 def level3():
     return render_template("level3.html")
 
-        # class RandomAnimal:
-        #     def __init__(self):
-        #         self.LIST_ANIMALS = ["cock.png", "cow.png", "duck.png", "goat.png", "horse.png", "pig.png", "sheep.png"]
-        #
-        #     def choose_random(self):
+    # class RandomAnimal:
+    #     def __init__(self):
+    #         self.LIST_ANIMALS = ["cock.png", "cow.png", "duck.png", "goat.png", "horse.png", "pig.png", "sheep.png"]
+    #
+    #     def choose_random(self):
 
 
 @app.route("/level4")

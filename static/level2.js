@@ -17,7 +17,9 @@ const isTouchDevice = () => {
 //Create List Items
 
 const creator = (count) => {
-  const itemValues = Array.from({ length: count }, (_, index) => index + 1);
+  const itemValues = Array.from({
+    length: count
+  }, (_, index) => index + 1);
   const shuffledValues = shuffle(itemValues);
 
   for (let i = 0; i < count; i++) {
@@ -56,6 +58,7 @@ function dragStart(e) {
   //Set current Element
   currentElement = e.target;
 }
+
 function dragOver(e) {
   e.preventDefault();
 }
@@ -136,6 +139,7 @@ if (checkButton) {
     } else {
       pauseAudio()
       const audioLose = new Audio('/static/audio/incorrect.mp3');
+      audioLose.volume = 0.2;
       audioLose.play();
       console.log("You have not won yet");
     }
@@ -160,5 +164,3 @@ window.onload = async () => {
     element.addEventListener("touchmove", drop, false);
   });
 };
-
-

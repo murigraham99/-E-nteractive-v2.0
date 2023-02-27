@@ -21,9 +21,25 @@
       <div id="btn-container">
          <button id="create-elem-btn" class="btn-center-top">Create Element</button>
       </div>
+          <audio id="audiohub">
+      <source src="/static/audio/hub.mp3" type="audio/mpeg">
+    </audio>
     </div>
     <div id="group-count"></div>
     <div id="snap-count"></div>
     <script src="/static/level1.js"></script>
+  <script>
+   function playAudioHub() {
+        var audio = document.getElementById("audiohub");
+        audio.volume = 0.2
+        audio.play();
+      }
+
+      function pauseAudioHub() {
+        var audio = document.getElementById("audiohub");
+        audio.pause();
+        audio.currentTime = 0;
+      }
+  </script>
   </body>
 </html>
