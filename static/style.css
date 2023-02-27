@@ -196,3 +196,12 @@ input[type=radio]:checked + label>img {
     max-height: 75%;
 }
 
+.animals{
+    width: 50%;
+    height: 50%;
+    position: fixed;
+    bottom: 10%;
+}
+
+
+

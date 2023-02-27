@@ -13,6 +13,21 @@
 
 
 <div class="picture"><img src="{{ url_for('static', filename='/images/file.png')}}" class="profile-picture"></div>
+<button  class="btn btn-light btn-sm mt-1 ml-1" onclick="playSound('{{text}}')">🔊</button>
+<button class="btn btn-light btn-sm mt-1" onclick="window.speechSynthesis.cancel()">🔇</button>
+
+<script>
+  console.log('{{text}}');
+
+function playSound(text) {
+  console.log(text);
+  var msg = new SpeechSynthesisUtterance(text);
+  msg.rate = 0.8;
+  window.speechSynthesis.speak(msg);
+}
+
+
+</script>
 
 <div class="container-fluid">
     <div class="row main">
@@ -26,7 +41,7 @@
         </div>
     </div>
 
-        <div class="row main ">
+        <div class="row main">
         <div class="col-6 m-auto text-center">
             <img id = "game3" class ="games py-5 z-index-1" src="{{ url_for('static', filename='/images/animalsgame.png')}}">
         </div>
