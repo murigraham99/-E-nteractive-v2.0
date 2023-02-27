@@ -176,15 +176,43 @@ gridItems.forEach(gridItem => {
       const message = document.createElement("p");
       message.textContent = "You won!";
       const button = document.createElement("button");
-      button.id = "new-button";
+      button.id = "audiohub";
       button.className = "button-arounder";
       button.textContent = "Go to the hub";
+
+      // create an audio element and set  its source
+      const audio = new Audio('static/audio/hub.mp3');
+
+      // add event listeners to play and pause the audio on hover
+      button.addEventListener("mouseover", playAudioHub);
+      button.addEventListener("mouseout", pauseAudioHub);
+
+      function playAudioHub() {
+        audio.volume = 0.2
+        audio.play();
+      }
+
+      function pauseAudioHub() {
+        audio.pause();
+        audio.currentTime = 0;
+      }
+
       button.onclick = () => {
         window.location.href = "http://127.0.0.1:4000/start";
       };
       popUp.appendChild(message);
       popUp.appendChild(button);
       document.body.appendChild(popUp);
+
+
+      button.onclick = () => {
+        window.location.href = "http://127.0.0.1:4000/start";
+      };
+      popUp.appendChild(message);
+      popUp.appendChild(button);
+      document.body.appendChild(popUp);
+
+
     }
   });
 });

@@ -5,11 +5,16 @@ const draggableElem = document.getElementById('draggable-elem');
 const groupCountElem = document.getElementById('group-count');
 const groupPanel = document.getElementById('group-panel');
 
+//Setting up the background
+document.body.style.backgroundImage = 'url(/static/images/backgrounds/Level1_bg.jpeg)';
+document.body.style.backgroundRepeat = 'no-repeat';
+document.body.style.backgroundSize = 'cover';
+
 // Generate a random target group count between 3 and 10
 const targetGroupCount = Math.floor(Math.random() * 7) + 4;
 
 // Set the text content of the group panel to display the target group count
-groupPanel.textContent = `Target group count: ${targetGroupCount}`;
+groupPanel.textContent = `Blocks of ice: ${targetGroupCount}`;
 
 // Flag to keep track of whether a pop-up has already been created for the current group
 let popUpCreated = false;
@@ -94,12 +99,8 @@ btn.addEventListener('click', function() {
         const audio = new Audio('static/audio/hub.mp3');
 
         // add event listeners to play and pause the audio on hover
-        button.addEventListener('mouseover', () => {
-          audio.play();
-        });
-        button.addEventListener('mouseout', () => {
-          audio.pause();
-        });
+        button.addEventListener("mouseover", playAudioHub);
+        button.addEventListener("mouseout", pauseAudioHub);
 
         button.onclick = () => {
           window.location.href = "http://127.0.0.1:4000/start";
