@@ -3,7 +3,6 @@ import random
 
 UPLOAD_FOLDER = '/uploads'
 
-
 app = Flask(__name__)
 app.secret_key = '12345'
 
@@ -66,8 +65,6 @@ class RandomAnimal:
 
 
 
-
-
 @app.route("/level4")
 def level4():
     return render_template("level4.html")
@@ -98,8 +95,6 @@ def start():
     session["companion"] = companion
 
     return render_template("page1.html", background=background, companion=companion)
-
-
 
 
 if __name__ == "__main__":

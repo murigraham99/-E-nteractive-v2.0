@@ -1,6 +1,30 @@
 const gridItems = document.querySelectorAll('.grid-item1, .grid-item2, .grid-item3, .grid-item4');
 let count = -1;
-const draggableItems = [  { tag: 'glass', img: '/static/images/glass1.png' },  { tag: 'glass', img: '/static/images/glass2.png' },  { tag: 'plastic', img: '/static/images/plastic1.png' },  { tag: 'plastic', img: '/static/images/plastic2.png' },  { tag: 'paper', img: '/static/images/paper1.png' },  { tag: 'paper', img: '/static/images/paper2.png' },  { tag: 'metal', img: '/static/images/metal1.png' },  { tag: 'metal', img: '/static/images/metal2.png' }];
+const draggableItems = [{
+  tag: 'glass',
+  img: '/static/images/glass1.png'
+}, {
+  tag: 'glass',
+  img: '/static/images/glass2.png'
+}, {
+  tag: 'plastic',
+  img: '/static/images/plastic1.png'
+}, {
+  tag: 'plastic',
+  img: '/static/images/plastic2.png'
+}, {
+  tag: 'paper',
+  img: '/static/images/paper1.png'
+}, {
+  tag: 'paper',
+  img: '/static/images/paper2.png'
+}, {
+  tag: 'metal',
+  img: '/static/images/metal1.png'
+}, {
+  tag: 'metal',
+  img: '/static/images/metal2.png'
+}];
 
 // Fisher-Yates shuffle algorithm to randomize the order of the draggableItems array
 for (let i = draggableItems.length - 1; i > 0; i--) {
@@ -35,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
 document.body.style.backgroundImage = 'url(/static/images/backgrounds/Level4_bg1.png)';
 
 function setBackground() {
-  const images = ['/static/images/backgrounds/Level4_bg2.png', '/static/images/backgrounds/Level4_bg3.png', '/static/images/backgrounds/Level4_bg4.png', '/static/images/backgrounds/Level4_bg5.png', '/static/images/backgrounds/Level4_bg6.png', '/static/images/backgrounds/Level4_bg7.png', '/static/images/backgrounds/Level4_bg8.png', '/static/images/backgrounds/Level4_bg9.png' ] ;
+  const images = ['/static/images/backgrounds/Level4_bg2.png', '/static/images/backgrounds/Level4_bg3.png', '/static/images/backgrounds/Level4_bg4.png', '/static/images/backgrounds/Level4_bg5.png', '/static/images/backgrounds/Level4_bg6.png', '/static/images/backgrounds/Level4_bg7.png', '/static/images/backgrounds/Level4_bg8.png', '/static/images/backgrounds/Level4_bg9.png'];
   const imageIndex = count % images.length;
   const imageUrl = `url(${images[imageIndex]})`;
   document.body.style.backgroundImage = imageUrl;
@@ -70,23 +94,47 @@ draggableContainer.childNodes.forEach(draggableItem => {
     } else {
       alert('The item cannot be dropped here.');
     }
-    if (count === 7){
-    const list = document.querySelector(".list");
-    list.classList.add("game-finished");
-    const popUp = document.createElement("div");
-    popUp.className = "pop-up";
-    const message = document.createElement("p");
-    message.textContent = "You won!";
-    const button = document.createElement("button");
-    button.id = "new-button";
-    button.className = "button-arounder";
-    button.textContent = "Go to the hub";
-    button.onclick = () => {
-      window.location.href = "http://127.0.0.1:4000/start";
-    };
-    popUp.appendChild(message);
-    popUp.appendChild(button);
-    document.body.appendChild(popUp);
+    if (count === 7) {
+      const list = document.querySelector(".list");
+      list.classList.add("game-finished");
+      const popUp = document.createElement("div");
+      popUp.className = "pop-up";
+      const message = document.createElement("p");
+      message.textContent = "You won!";
+      const button = document.createElement("button");
+      button.id = "new-button";
+      button.className = "button-arounder";
+      button.textContent = "Go to the hub";
+
+      // create an audio element and set  its source
+      const audio = new Audio('static/audio/hub.mp3');
+
+      // add event listeners to play and pause the audio on hover
+      button.addEventListener('mouseover', () => {
+        audio.play();
+      });
+      button.addEventListener('mouseout', () => {
+        audio.pause();
+      });
+
+      button.onclick = () => {
+        window.location.href = "http://127.0.0.1:4000/start";
+      };
+      popUp.appendChild(message);
+      popUp.appendChild(button);
+      document.body.appendChild(popUp);
+
+      function playAudioHub() {
+        var audio = document.getElementById("new-button");
+        audio.volume = 0.2
+        audio.play();
+      }
+
+      function pauseAudioHub() {
+        var audio = document.getElementById("new-button");
+        audio.pause();
+        audio.currentTime = 0;
+      }
     }
   });
 });
@@ -121,22 +169,22 @@ gridItems.forEach(gridItem => {
       alert('The item cannot be dropped here.');
     }
     if (count === 7) { // If count is 7, show the pop-up
-    const list = document.querySelector(".list");
-    list.classList.add("game-finished");
-    const popUp = document.createElement("div");
-    popUp.className = "pop-up";
-    const message = document.createElement("p");
-    message.textContent = "You won!";
-    const button = document.createElement("button");
-    button.id = "new-button";
-    button.className = "button-arounder";
-    button.textContent = "Go to the hub";
-    button.onclick = () => {
-      window.location.href = "http://127.0.0.1:4000/start";
-    };
-    popUp.appendChild(message);
-    popUp.appendChild(button);
-    document.body.appendChild(popUp);
-  }
+      const list = document.querySelector(".list");
+      list.classList.add("game-finished");
+      const popUp = document.createElement("div");
+      popUp.className = "pop-up";
+      const message = document.createElement("p");
+      message.textContent = "You won!";
+      const button = document.createElement("button");
+      button.id = "new-button";
+      button.className = "button-arounder";
+      button.textContent = "Go to the hub";
+      button.onclick = () => {
+        window.location.href = "http://127.0.0.1:4000/start";
+      };
+      popUp.appendChild(message);
+      popUp.appendChild(button);
+      document.body.appendChild(popUp);
+    }
   });
 });

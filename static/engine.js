@@ -24,11 +24,6 @@ window.addEventListener('load', () => {
     circle.style.top = 0;
 });
 
-
-
-
-
-
 window.addEventListener('keydown', (e) => {
     let companion = document.getElementById('companion');
     const companion_coords = companion.getBoundingClientRect();
@@ -79,9 +74,6 @@ window.addEventListener('keydown', (e) => {
           popUp.appendChild(message);
           popUp.appendChild(button);
           document.body.appendChild(popUp);
-
-
-
     }
     else if ((Math.abs(companion_coords.top - (game3_coords.top + 160 )) <= 50) && (Math.abs(companion_coords.right - game3_coords.right) <= 50)  ){
         console.log("Touching 3")
@@ -102,7 +94,6 @@ window.addEventListener('keydown', (e) => {
           popUp.appendChild(message);
           popUp.appendChild(button);
           document.body.appendChild(popUp);
-
     }
     else if ((Math.abs(companion_coords.top - (game4_coords.top + 160 )) <= 50) && (Math.abs(companion_coords.right - game4_coords.right) <= 50)  ){
         console.log("Touching 4")
@@ -123,6 +114,7 @@ window.addEventListener('keydown', (e) => {
           popUp.appendChild(message);
           popUp.appendChild(button);
           document.body.appendChild(popUp);
+
     }
 
     switch (e.key) {
