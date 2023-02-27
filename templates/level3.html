@@ -11,32 +11,13 @@
 
     </style>
 </head>
-<body>
+
+<body style="background-image: url({{ url_for('static', filename='images/backgrounds/animals.png')}});">
 
 
 <form class="box" method="post" action="/level3" enctype="multipart/form-data">
 
     <div class="container">
-        <div class="row pt-5 h-50">
-            <div class="col-6 d-flex align-items-stretch">
-
-                <div class="card mx-auto lign-items-center d-flex justify-content-center" style="width: 18rem;">
-                    <a href="javascript:void(0);"  id="{{animal1}}">
-                  <img class="card-img-top" src="{{ url_for('static', filename='images/animals/' + animal1)}}">
-                    </a>
-                </div>
-
-            </div>
-            <div class="col-6 d-flex align-items-stretch">
-                <div class="card mx-auto align-items-center d-flex justify-content-center" style="width: 18rem;">
-                    <a href="javascript:void(0);" id ="{{animal2}}">
-
-                  <img class="card-img-top" src="{{ url_for('static', filename='images/animals/' + animal2)}}">
-                    </a>
-                </div>
-
-            </div>
-        </div>
 
         <div class="row pt-5 pb-5">
             <div class="col-12 text-center justify-content-center m-auto">
@@ -44,6 +25,27 @@
             </div>
 
         </div>
+        <div class="row animals pt-5 h-50">
+            <div class="col-6 d-flex align-items-stretch">
+
+<!--                <div class="card mx-auto lign-items-center d-flex justify-content-center" style="width: 18rem;">-->
+                    <a href="javascript:void(0);"  id="{{animal1}}">
+                  <img class="card-img-top" src="{{ url_for('static', filename='images/animals/' + animal1)}}">
+                    </a>
+<!--                </div>-->
+
+            </div>
+            <div class="col-6 d-flex align-items-stretch">
+<!--                <div class="card mx-auto align-items-center d-flex justify-content-center" style="width: 18rem;">-->
+                    <a href="javascript:void(0);" id ="{{animal2}}">
+
+                  <img class="card-img-top" src="{{ url_for('static', filename='images/animals/' + animal2)}}">
+                    </a>
+<!--                </div>-->
+
+            </div>
+        </div>
+
 
     </div>
 </form>
@@ -153,7 +155,6 @@
 
 
 </script>
-<!--<script src="{{url_for('static', filename='level3.js')}}"></script>-->
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
