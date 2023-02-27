@@ -1,8 +1,13 @@
 let currentElement = "";
 let list = document.getElementById("list");
 let initialX = 0,
-  initialY = 0;
+    initialY = 0;
 let isGameTwoWon = false;
+
+//Setting up the cover
+document.body.style.backgroundImage = 'url(/static/images/backgrounds/Level2_bg.jpeg)';
+document.body.style.backgroundRepeat = 'no-repeat';
+document.body.style.backgroundSize = 'cover';
 
 const isTouchDevice = () => {
   try {
@@ -15,7 +20,6 @@ const isTouchDevice = () => {
 };
 
 //Create List Items
-
 const creator = (count) => {
   const itemValues = Array.from({
     length: count
@@ -36,7 +40,6 @@ function shuffle(array) {
   }
   return array;
 }
-
 
 //Returns element index with given value
 const getPosition = (value) => {
