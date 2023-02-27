@@ -24,6 +24,7 @@ btn.addEventListener('click', function() {
   // Create a new draggable element and set its initial position
   const newElem = document.createElement('div');
   newElem.classList.add('draggable');
+  newElem.style.backgroundImage = 'url(/static/images/backgrounds/ice.jpg)';
   const initX = Math.floor(Math.random() * (container.offsetWidth - newElem.offsetWidth));
   const initY = Math.floor(Math.random() * (container.offsetHeight - newElem.offsetHeight));
   newElem.style.left = initX + 'px';
