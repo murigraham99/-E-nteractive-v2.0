@@ -26,15 +26,14 @@ body {
   position: relative;
   padding-inline-start: 0;
   list-style-type: none;
-  display: flex;F
+  display: flex;
   justify-content: center;
 }
 
 .list-item {
-  width: 82px;
+  width: 10rem;
   height: 90rem;
   padding: 0.8em ;
-  border-radius: 0.2em;
   margin: 1em auto;
   text-align: center;
   transform: skew(-30deg);

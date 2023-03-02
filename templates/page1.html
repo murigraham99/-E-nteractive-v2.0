@@ -13,6 +13,7 @@
 
 
 <div class="picture"><img src="{{ url_for('static', filename='/images/file.png')}}" class="profile-picture"></div>
+<h4 class="username text-center">{{username}}</h4>
 <button  class="btn btn-light btn-sm mt-1 ml-1" onclick="playSound('{{text}}')">🔊</button>
 <button class="btn btn-light btn-sm mt-1" onclick="window.speechSynthesis.cancel()">🔇</button>
 
@@ -33,8 +34,8 @@ function playSound(text) {
     <div class="row main">
     </div>
     <div class="row main text-align-center justify-content-center m-auto ms-auto">
-        <div class="col-6 justify-content-center m-auto text-center">
-            <img id = "game1" class ="games py-5" src="{{ url_for('static', filename='/images/219438626-903298e3-f0a9-4464-9f54-46136e0844f0.png')}}">
+        <div class="col-6 justify-content-center m-auto text-center ">
+            <img id = "game1" class ="games py-5" src="{{ url_for('static', filename='/images/lvl1.png')}}">
         </div>
         <div class="col-6 m-auto text-center">
             <img id = "game2" class ="games py-5 z-index-1" src="{{ url_for('static', filename='/images/rainbow.png')}}">
@@ -42,7 +43,7 @@ function playSound(text) {
     </div>
 
         <div class="row main">
-        <div class="col-6 m-auto text-center">
+        <div class="col-6 m-auto text-center ">
             <img id = "game3" class ="games py-5 z-index-1" src="{{ url_for('static', filename='/images/animalsgame.png')}}">
         </div>
         <div class="col-6 m-auto text-center">

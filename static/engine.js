@@ -34,7 +34,7 @@ window.addEventListener('keydown', (e) => {
     console.log("Top dif=" , Math.abs(companion_coords.top - game1_coords.top))
     console.log( "Right dif=" , Math.abs(companion_coords.right - game1_coords.right))
 
-    if ((Math.abs(companion_coords.top - (game1_coords.top + 160 )) <= 50) && (Math.abs(companion_coords.right - game1_coords.right) <= 50)  ){
+    if ((Math.abs(companion_coords.top - (game1_coords.top + 160 )) <= 100) && (Math.abs(companion_coords.right - game1_coords.right) <= 100)  ){
         console.log("Touching 1")
         document.getElementById("game1").style.backgroundColor = 'red';
         document.getElementById("game2").style.backgroundColor = '';
@@ -53,9 +53,10 @@ window.addEventListener('keydown', (e) => {
           popUp.appendChild(message);
           popUp.appendChild(button);
           document.body.appendChild(popUp);
+          popUpCreated = true;
 
     }
-    else if ((Math.abs(companion_coords.top - (game2_coords.top +160 )) <= 50) && (Math.abs(companion_coords.right - game2_coords.right) <= 50)  ){
+    else if ((Math.abs(companion_coords.top - (game2_coords.top +160 )) <= 100) && (Math.abs(companion_coords.right - game2_coords.right) <= 100)  ){
         console.log("Touching 2")
         document.getElementById("game2").style.backgroundColor = 'red';
         document.getElementById("game1").style.backgroundColor = '';
@@ -75,7 +76,7 @@ window.addEventListener('keydown', (e) => {
           popUp.appendChild(button);
           document.body.appendChild(popUp);
     }
-    else if ((Math.abs(companion_coords.top - (game3_coords.top + 160 )) <= 50) && (Math.abs(companion_coords.right - game3_coords.right) <= 50)  ){
+    else if ((Math.abs(companion_coords.top - (game3_coords.top + 160 )) <= 100) && (Math.abs(companion_coords.right - game3_coords.right) <= 100)  ){
         console.log("Touching 3")
         document.getElementById("game3").style.backgroundColor = 'red';
         document.getElementById("game2").style.backgroundColor = '';
@@ -95,7 +96,7 @@ window.addEventListener('keydown', (e) => {
           popUp.appendChild(button);
           document.body.appendChild(popUp);
     }
-    else if ((Math.abs(companion_coords.top - (game4_coords.top + 160 )) <= 50) && (Math.abs(companion_coords.right - game4_coords.right) <= 50)  ){
+    else if ((Math.abs(companion_coords.top - (game4_coords.top + 160 )) <= 100) && (Math.abs(companion_coords.right - game4_coords.right) <= 100)  ){
         console.log("Touching 4")
         document.getElementById("game4").style.backgroundColor = 'red';
         document.getElementById("game2").style.backgroundColor = '';

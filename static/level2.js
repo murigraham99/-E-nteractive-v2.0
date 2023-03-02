@@ -7,7 +7,24 @@ let isGameTwoWon = false;
 //Setting up the cover
 document.body.style.backgroundImage = 'url(/static/images/backgrounds/Level2_bg.jpeg)';
 document.body.style.backgroundRepeat = 'no-repeat';
-document.body.style.backgroundSize = 'cover';
+document.body.style.backgroundSize = '100vw 100vh';
+
+window.onload = async () => {
+  customElement = "";
+  list.innerHTML = "";
+  //This creates 7 elements
+  await creator(7);
+
+  let listItems = document.querySelectorAll(".list-item");
+  listItems.forEach((element) => {
+    element.draggable = true;
+    element.addEventListener("dragstart", dragStart, false);
+    element.addEventListener("dragover", dragOver, false);
+    element.addEventListener("drop", drop, false);
+    element.addEventListener("touchstart", dragStart, false);
+    element.addEventListener("touchmove", drop, false);
+  });
+};
 
 const isTouchDevice = () => {
   try {
@@ -75,7 +92,7 @@ const drop = (e) => {
   let targetElement = document.elementFromPoint(newX, newY);
   let currentValue = currentElement.getAttribute("data-value");
   let targetValue = targetElement.getAttribute("data-value");
-  //get index of current and target based on value
+  //get index of current target based on value
   let [currentPosition, targetPosition] = [
     getPosition(currentValue),
     getPosition(targetValue),
@@ -150,20 +167,3 @@ if (checkButton) {
 } else {
   console.error("Element with ID 'check-button' not found");
 }
-
-window.onload = async () => {
-  customElement = "";
-  list.innerHTML = "";
-  //This creates 7 elements
-  await creator(7);
-
-  let listItems = document.querySelectorAll(".list-item");
-  listItems.forEach((element) => {
-    element.draggable = true;
-    element.addEventListener("dragstart", dragStart, false);
-    element.addEventListener("dragover", dragOver, false);
-    element.addEventListener("drop", drop, false);
-    element.addEventListener("touchstart", dragStart, false);
-    element.addEventListener("touchmove", drop, false);
-  });
-};
