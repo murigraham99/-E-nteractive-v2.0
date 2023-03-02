@@ -67,6 +67,7 @@
   transform: scale(1.3);
 }
 
+
 body {
   background-size: calc(4*var(--s)) calc(12*var(--s));
   background-size: cover;

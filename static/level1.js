@@ -10,7 +10,7 @@ document.body.style.backgroundImage = 'url(/static/images/backgrounds/Level1_bg.
 document.body.style.backgroundRepeat = 'no-repeat';
 document.body.style.backgroundSize = 'cover';
 
-// Generate a random target group count between 3 and 10
+// Generate a random target group count between 4 and 10
 const targetGroupCount = Math.floor(Math.random() * 7) + 4;
 
 // Set the text content of the group panel to display the target group count
@@ -19,12 +19,14 @@ groupPanel.textContent = `Blocks of ice: ${targetGroupCount}`;
 // Flag to keep track of whether a pop-up has already been created for the current group
 let popUpCreated = false;
 
+
 // Add click event listener to the button
 btn.addEventListener('click', function() {
-  // Create a new draggable element and set its initial position
+  // Create a new draggable element
   const newElem = document.createElement('div');
   newElem.classList.add('draggable');
   newElem.style.backgroundImage = 'url(/static/images/backgrounds/ice.jpg)';
+  newElem.style.backgroundSize = 'cover';
   const initX = Math.floor(Math.random() * (container.offsetWidth - newElem.offsetWidth));
   const initY = Math.floor(Math.random() * (container.offsetHeight - newElem.offsetHeight));
   newElem.style.left = initX + 'px';

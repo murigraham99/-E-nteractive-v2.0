@@ -10,7 +10,7 @@
 
     </style>
 </head>
-<body>
+<body style="background-image: url({{ url_for('static', filename='images/backgrounds/' + background)}});">
 
 
 <div><img class = "sun" src={{url_for('static', filename='images/219438615-2ace099a-2032-455d-a52a-8c0477c7ab32.png' )}} ></div>
@@ -37,6 +37,12 @@
                             <label for="formFile" class="form-label"><h2 class="text-light">Profile picture</h2></label>
                             <div class="profile-pic">
                                 <input class="form-control" type="file" id="formFile" name="file" size="100">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label"><h2 class="text-light">Username</h2></label>
+                            <div class="profile-pic">
+                                <input class="form-control" type="text" id="username" name= "username" size="100">
                             </div>
                         </div>
                         <div class="box__input">

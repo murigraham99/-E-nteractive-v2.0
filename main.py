@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, session
 import random
 import openai
-
+import secretkeys
 
 UPLOAD_FOLDER = '/uploads'
 
@@ -10,12 +10,13 @@ app.secret_key = '12345'
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-OPEN_AI_KEY = "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"
+OPEN_AI_KEY = secretkeys.OPEN_AI_KEY
 
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    return render_template("index.html")
+    background = "index.jpeg"
+    return render_template("index.html",background=background)
 
 @app.route("/level1")
 def level1():
@@ -74,9 +75,8 @@ def level4():
 
 @app.route("/start", methods=["GET", "POST"])
 def start():
-    global current_level, value, companion
-    current_level = 0
-    username = "Robert"
+    global value, companion, username
+    username = ""
 
 
     if request.method == "POST":
@@ -84,6 +84,7 @@ def start():
         f = request.files['file']
         f.save('static/images/file.png')
         print(value)
+        username = request.form.get("username")
 
     if value == "Mickey":
         companion = "mickey"
@@ -105,14 +106,14 @@ def start():
     openai.api_key = OPEN_AI_KEY
     response_raw = openai.Completion.create(
         model="text-davinci-003",
-        prompt=f"Write a short story about {username} and his companion {companion} on their journey to learning morea about how things work in this world. Make it no more than 100 words",
+        prompt=f"Write a short story about {username} and his companion {companion} on their educative journey to learn morea about math, animal sounds, rainbow colors and recycling. Make it no more than 100 words",
         max_tokens=200,
         temperature=0.7
     )
     response = str(response_raw["choices"][0]["text"][2:])
     # response = "Robert and Rapunzel were on a journey to learn more about the world. They encountered many different people, animals, and landscapes along the way. They talked to everyone they encountered and asked questions to gain a better understanding of the world around them. One day they stumbled upon a village where they met a wise old man who taught them about the power of knowledge. He showed them how to think critically, use their skills, and work together to solve problems. Robert and Rapunzel left the village with a newfound appreciation for the world and each other. They continued their journey with a newfound sense of adventure, eager to learn more about the world and how it works."
 
-    return render_template("page1.html", background=background, companion=companion, text = str(response))
+    return render_template("page1.html", background=background, companion=companion, text = str(response), username=username)
 
 
 if __name__ == "__main__":
