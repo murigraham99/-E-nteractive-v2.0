@@ -15,6 +15,6 @@ We believe that **E-nteractive** helps to foster a love for learning and explora
 
 **Colaborators** :man_technologist:
 
-<a href="https://github.com/Andrei2738"><img width="100" alt="Screenshot 2023-02-10 at 17 48 58" src="https://user-images.githubusercontent.com/64041947/218135335-e22991a1-77c6-42b2-878c-724eff899c56.png"> `andrei`</a> <img width="100" alt="Screenshot 2023-02-10 at 17 49 19" src="https://user-images.githubusercontent.com/64041947/218135479-1bd7b190-ae99-4e96-9c0e-a9214facb001.png"> `robert` <img width="100" alt="Screenshot 2023-02-10 at 17 48 37" src="https://user-images.githubusercontent.com/64041947/218135605-3359afb4-c712-443d-8ec6-8582d369690d.png"> `rita` 
-<img width="100" alt="Screenshot 2023-02-10 at 17 48 49" src="https://user-images.githubusercontent.com/64041947/218136227-bdac4472-b2c7-49c8-93ec-1a3fac853f66.png"> `bogdan`
+<a href="https://github.com/Andrei2738"><img width="100" alt="Screenshot 2023-02-10 at 17 48 58" src="https://user-images.githubusercontent.com/64041947/218135335-e22991a1-77c6-42b2-878c-724eff899c56.png"> `andrei`</a> <a href="https://github.com/murigraham99"><img width="100" alt="Screenshot 2023-02-10 at 17 49 19" src="https://user-images.githubusercontent.com/64041947/218135479-1bd7b190-ae99-4e96-9c0e-a9214facb001.png"> `robert` </a> <a href="https://github.com/ritasgithub20"><img width="100" alt="Screenshot 2023-02-10 at 17 48 37" src="https://user-images.githubusercontent.com/64041947/218135605-3359afb4-c712-443d-8ec6-8582d369690d.png"> `rita` </a> <a href="https://github.com/Boggitio">
+<img width="100" alt="Screenshot 2023-02-10 at 17 48 49" src="https://user-images.githubusercontent.com/64041947/218136227-bdac4472-b2c7-49c8-93ec-1a3fac853f66.png"> `bogdan`</a>
 ***
